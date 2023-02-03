@@ -17,5 +17,15 @@ class MainActivity : AppCompatActivity() {
         layout.adapter = adapter
         layout.layoutManager = LinearLayoutManager(this)
 
+        findViewById<Button>(R.id.loadMoreBtn).setOnClickListner {
+
+            val newEmails = EmailFetcher.getNext5Emails()
+            emails.addAll(newEmails)
+            adapter.notify
+            adapter.notifyDataSetChanged()
+
+
+        }
+
     }
 }
