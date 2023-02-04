@@ -3,6 +3,7 @@ package com.example.gmailcloneapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -17,6 +18,7 @@ class EmailAdapter(private val emails: List<Email>) : RecyclerView.Adapter<Email
         val sender:TextView
         val title:TextView
         val message:TextView
+        val image:ImageView
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each sub-view
@@ -26,6 +28,7 @@ class EmailAdapter(private val emails: List<Email>) : RecyclerView.Adapter<Email
             sender = itemView.findViewById(R.id.sender)
             title = itemView.findViewById(R.id.title)
             message = itemView.findViewById(R.id.message)
+            image = itemView.findViewById(R.id.senderpic)
         }
     }
 
@@ -46,6 +49,7 @@ class EmailAdapter(private val emails: List<Email>) : RecyclerView.Adapter<Email
         holder.sender.text = email.sender
         holder.title.text = email.title
         holder.message.text = email.message
+        holder.image.setImageResource(email.pic)
 
     }
 
